@@ -1,6 +1,6 @@
 const linkdinURL = "https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BZ87fjtl7ScOVycJePTc%2BPw%3D%3D"
 const mediumURL = "https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BZ87fjtl7ScOVycJePTc%2BPw%3D%3D"
-const githubURL = "https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BZ87fjtl7ScOVycJePTc%2BPw%3D%3D"
+const githubURL = "https://github.com/jevin-1022"
 
 
 export const data = {
@@ -155,13 +155,13 @@ export const data = {
             profileLink : '../assets/img/testi4.jpg',
             subTitle: "Client",
             rating : ['uil-star', 'uil-star', 'uil-star', 'uil-star', 'uil-star'],
-            clientWords : "I get good impression, I carry out my project with all posibile quality and attention and support 24 hour a day."
+            clientWords : "I get good impression, I carry out my project with all possible quality and attention and support 24 hour a day."
         },
     ],
     footerLinks:{
-        fb : "https://www.facebook.com/",
-        insta : "https://www.instagram.com/",
-        x : "https://twitter.com/"
+        fb : "https://www.facebook.com/jevin.vaghasiya.750",
+        instagram : "https://www.instagram.com/jevin.vaghasiya/",
+        x : "https://twitter.com/JevinVagha35695"
     }
 }
 

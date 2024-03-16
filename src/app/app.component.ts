@@ -209,6 +209,12 @@ export class AppComponent implements OnInit {
     a.click()
   }
 
+  onClickLocation(){
+    const a = document.createElement('a')
+    a.href= `https://www.google.co.in/maps/place/Ahmedabad`
+    a.click()
+  }
+
   createForm(){
     this.contactUsForm = this.fmBuilder.group({
       name: ['', [Validators.required]],
