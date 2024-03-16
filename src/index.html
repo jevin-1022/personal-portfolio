@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <title>Jevin Vaghasiya</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- --------------------------- SWIPER CSS --------------------------------- -->
+  <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+</head>
+<body>
+  <app-root></app-root>
+  <!-- --------------------------- SWIPER JS --------------------------------- -->
+  <script src="./assets/js/swiper-bundle.min.js"></script>
+  <script>
+    setTimeout(function() {
+      var swiperPortfolio = new Swiper(".portfolio__container", {
+        cssMode: true,
+        loop:true,
+
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        // mousewheel: true,
+        // keyboard: true,
+      });
+    }, 1000);
+  </script>
+  <script>
+    setTimeout(function() {
+      var swiperTestimonial = new Swiper(".testimonial__container", {
+        loop:true,
+        grabCursor: true,
+        spaceBetween: 48,
+
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          dynamicBullets : true
+        },
+        breakpoints:{
+          568:{
+            slidesPerView : 2,
+          }
+        },
+        // mousewheel: true,
+        // keyboard: true,
+      });
+    }, 1000);
+  </script>
+</body>
+</html>
