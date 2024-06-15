@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from './core/constant';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from './core/authentication/authentication.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +11,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+
   title = 'j-portfolio'
   contactUsForm! : FormGroup;
   allData:any = data
+  loader:boolean = false
 
   constructor(
-    private fmBuilder : FormBuilder
+    private fmBuilder : FormBuilder,
+    private authService : AuthenticationService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -73,9 +80,9 @@ export class AppComponent implements OnInit {
   /*==================== Qualification Tab Click ====================*/
   onQualificationTabClick() {
     const tabs: any = document.querySelectorAll('[data-target]');
-    console.log('tabs: ', tabs);
+    // console.log('tabs: ', tabs);
     const tabContents: any = document.querySelectorAll('[data-content]');
-    console.log('tabContents: ', tabContents);
+    // console.log('tabContents: ', tabContents);
 
     tabs.forEach((tab: any) => {
       tab.addEventListener('click', () => {
@@ -220,12 +227,38 @@ export class AppComponent implements OnInit {
       name: ['', [Validators.required]],
       email : ['', [Validators.required, Validators.email]],
       project : [''],
-      message : [''],
+      message : ['', [Validators.required]],
     })
   }
 
   sendMessage(){
-    const formValue = this.contactUsForm.value
-    console.log('formValue: ', formValue);
+    if(this.contactUsForm.invalid){
+      this.contactUsForm.markAllAsTouched()
+    }else{
+      this.loader = true
+      const payload = this.contactUsForm.value
+      this.authService.apiCall('post', '/contact/email', payload)
+      .pipe(finalize(() => {
+        this.loader = false
+      }))
+      .subscribe((res:any) => {
+        if(res){
+          let a = document.createElement('a')
+          a.href = "#"
+          a.click()
+          this.openSnackBar("Thank you for connecting with us.")
+        }
+      },(error:any) => {
+        console.log('error: ', error);
+      })
+    }
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, undefined, {
+      duration: 4000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 }

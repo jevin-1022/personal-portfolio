@@ -7,6 +7,9 @@
 </head>
 <body>
   <header class="header" id="header">
+    <!-- Loader -->
+    <mat-progress-bar style="z-index: 1000;" *ngIf="loader" mode="indeterminate"></mat-progress-bar>
+    <!-- navbar -->
     <nav class="nav container">
       <a href="#" class="nav__logo">Jevin Vaghasiya</a>
       <div class="nav__menu" id="nav-menu">
@@ -410,10 +413,12 @@
             <div class="contact__content">
               <label for="" class="contact__label">Name</label>
               <input type="text" formControlName="name" class="contact__input">
+              <p *ngIf="contactUsForm.controls['name'].touched && contactUsForm.controls['name'].invalid">Name is required.</p>
             </div>
             <div class="contact__content">
               <label for="" class="contact__label">Email</label>
               <input type="email" formControlName="email"  class="contact__input">
+              <p *ngIf="contactUsForm.controls['email'].touched && contactUsForm.controls['email'].invalid">Email is required.</p>
             </div>
           </div>
           <div class="contact__content">
@@ -423,10 +428,11 @@
           <div class="contact__content">
             <label for="" class="contact__label">Message</label>
             <textarea name="" id="" formControlName="message"  cols="0" rows="7" class="contact__input"></textarea>
+            <p *ngIf="contactUsForm.controls['message'].touched && contactUsForm.controls['message'].invalid">Message is required.</p>
           </div>
 
           <div>
-            <a href="#" class="button button--flex" (click)="sendMessage()">
+            <a class="button button--flex send-message-btn" (click)="sendMessage()">
               Send Message
               <i class="uil uil-message button__icon"></i>
             </a>
