@@ -243,6 +243,7 @@ export class AppComponent implements OnInit {
       }))
       .subscribe((res:any) => {
         if(res){
+          this.contactUsForm.reset()
           let a = document.createElement('a')
           a.href = "#"
           a.click()
