@@ -1,6 +1,6 @@
 export const environment = {
   env: "DEV",
   production: false,
-  serverBaseUrl: "https://personal-portfolio-api-three.vercel.app",
-  serverUrl: "https://personal-portfolio-api-three.vercel.app",
+  serverBaseUrl: "https://jevinvaghasiya-api.vercel.app",
+  serverUrl: "https://jevinvaghasiya-api.vercel.app",
 };
