@@ -1,6 +1,6 @@
 {
   "name": "j-portfolio",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration local",
@@ -8,8 +8,8 @@
     "start:prod": "ng serve --configuration production",
     "build": "ng build",
     "build:local": "ng build --configuration local",
-    "build:dev": "ng build --configuration development",
-    "build:prod": "ng build --configuration production",
+    "build:dev": "ng build --configuration development && npm run generate-build-version",
+    "build:prod": "ng build --configuration production && npm run generate-build-version",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
