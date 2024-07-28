@@ -11,7 +11,8 @@
     "build:dev": "ng build --configuration development && npm run generate-build-version",
     "build:prod": "ng build --configuration production && npm run generate-build-version",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate-build-version": "node generate-build-version"
   },
   "private": true,
   "dependencies": {
