@@ -19,6 +19,6 @@ var jsonContent = JSON.stringify(jsonData)
 
 fs.writeFile('./dist/meta.json', jsonContent, 'utf8', function(error) {
     if(error){
-        console.log(error);
+        return console.log(error);
     }
 })
